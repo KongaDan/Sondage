@@ -1,0 +1,16 @@
+{% if latest_question_list %}
+    <ul>
+        {% for question in latest_question_list %}
+        <!--elle pointe vers la vue « detail » à l’espace de nom correspondant-->
+            <li><a href="{% url 'polls:detail' question.id %}">
+                {{question.question_text}}
+            </a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p> No polls are available. </p>
+{% endif %}
+<!--
+Le principe de ce fonctionnement est que l’URL est recherchée
+dans les définitions du module polls.urls
+-->
